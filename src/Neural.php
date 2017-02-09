@@ -1,5 +1,5 @@
 <?php
-
+namespace Source;
 class Neural
 {
     public $x1;
@@ -132,12 +132,12 @@ class Neural
             $this->s2 += $this->w2[$i] * $this->xi[$i];
         }
         echo "<br><br>S=$this->s1 $this->s2<br>";
-        if ($this->s1 > 0 && $this->s2 > 0) echo "<h3>This is most likely first symbol</h3>";
-        else if ($this->s1 > 0 && $this->s2 < 0) echo "<h3>This is most likely second symbol</h3>";
-        else if ($this->s1 < 0 && $this->s2 > 0) echo "<h3>This is most likely third symbol</h3>";
-        else if ($this->s1 < 0 && $this->s2 < 0) echo "<h3>This is most likely fourth symbol</h3>";
+        if ($this->s1 > 0 && $this->s2 > 0) return "<h3>This is most likely first symbol</h3>";
+        else if ($this->s1 > 0 && $this->s2 < 0)return "<h3>This is most likely second symbol</h3>";
+        else if ($this->s1 < 0 && $this->s2 > 0) return "<h3>This is most likely third symbol</h3>";
+        else if ($this->s1 < 0 && $this->s2 < 0) return "<h3>This is most likely fourth symbol</h3>";
         else{
-            echo "The neural network can not make an accurate choice. Check your data, please<br>";
+            return  "The neural network can not make an accurate choice. Check your data, please<br>";
         }
     }
 }

@@ -1,0 +1,16 @@
+{
+    "name": "nastya/neural_network_hebb",
+    "authors": [
+        {
+            "name": "Nastya",
+            "email": "nastya.gorobets95@gmail.com"
+        }
+    ],
+    "require": {   "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Source\\": "src/"
+        }
+    }
+}
