@@ -38,21 +38,26 @@ for($i=0;$i<=19;$i++){
     $w2[$i]=$w2[$i]+$x4[$i]*$y4[1];
 }
 
+echo "W:<br>";
 print_r($w1);
 echo '<br>';
-
 print_r($w2);
 
-//проверка
-for($i=0;$i<=19;$i++){
-    $s1 += $w1[$i]*$x4[$i];
 
-    $s2+= $w2[$i]*$x4[$i];
+if($_POST['ident'] == true ){
+    $xi=$_POST['xi'];
+    //проверка
+    for($i=0;$i<=19;$i++){
+        $s1 += $w1[$i]*$xi[$i];
+
+        $s2+= $w2[$i]*$xi[$i];
+    }
+    echo "<br><br>S=$s1 $s2<br>";
+    if($s1>0 && $s2>0)echo "This is most likely first symbol";
+    if($s1>0 && $s2<0)echo "This is most likely second symbol";
+    if($s1<0 && $s2>0)echo "This is most likely third symbol";
+    if($s1<0 && $s2<0)echo "This is most likely fourth symbol";
 }
-
-
-
-if($_POST['ident'] == true )echo "S=$s1 $s2";
 
 
 

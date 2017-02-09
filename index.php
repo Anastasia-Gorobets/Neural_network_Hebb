@@ -18,7 +18,7 @@
        .symbols:nth-child(1) {
             clear: left;
         }
-        #submit{
+        #submit, #identify{
             margin-top: 10px;
             width: 150px;
             height: 50px;
@@ -46,6 +46,9 @@
             var x4=$("input[name='x4[]'").map(function() {
                 return this.value;
             }).get();
+            var xi=$("input[name='xi[]'").map(function() {
+                return this.value;
+            }).get();
 
             var ident=$("#identify").attr('data-title');
             if($(""))
@@ -58,7 +61,8 @@
                     x2:x2,
                     x3:x3,
                     x4:x4,
-                    ident:ident
+                    ident:ident,
+                    xi:xi
                 },
                 success: function (data) {
                     $("#result").html(data);
@@ -107,9 +111,23 @@
         </div>
     <div class="clearleft">
     <input type="button" name="Submit"  id="submit" value="Train" onclick="calc()">
+    </div>
 
-     <input type="button" name="Identify" value="Identify" data-title=""  id="identify"  disabled>
+<h1>Symbol to recognize</h1>
+        <div class="symbols">
+            <?php
+
+            for($i=0; $i<20;$i++){
+                if($i % 4 ==0)echo '<br>';
+                echo '<input type="text" name="xi[]" value="-1" class="inp" >';
+            }
+            ?>
         </div>
+
+      <div class="clearleft">
+     <input type="button" name="Identify" value="Identify" data-title=""  id="identify"  disabled>
+      </div>
+
 </form>
 
 
